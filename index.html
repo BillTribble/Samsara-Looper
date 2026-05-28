@@ -26,24 +26,24 @@
             --text-secondary: #8a8599;
             --text-muted: #5a5570;
             
-            /* Active Theme Variables - Initial Slate Blue */
-            --active-accent: #4e6c84;
-            --active-accent-glow: rgba(78, 108, 132, 0.25);
-            --active-accent-glow-hover: rgba(78, 108, 132, 0.35);
-            --active-accent-bg-subtle: rgba(78, 108, 132, 0.12);
-            --active-accent-bg-subtle-hover: rgba(78, 108, 132, 0.2);
-            --active-accent-border-subtle: rgba(78, 108, 132, 0.2);
-            --active-accent-border-glow: rgba(78, 108, 132, 0.25);
+            /* Active Theme Variables - Initial Bright Blue */
+            --active-accent: #6ec1ff;
+            --active-accent-glow: rgba(110, 193, 255, 0.25);
+            --active-accent-glow-hover: rgba(110, 193, 255, 0.35);
+            --active-accent-bg-subtle: rgba(110, 193, 255, 0.12);
+            --active-accent-bg-subtle-hover: rgba(110, 193, 255, 0.2);
+            --active-accent-border-subtle: rgba(110, 193, 255, 0.2);
+            --active-accent-border-glow: rgba(110, 193, 255, 0.25);
             
-            --active-accent-orb-1: rgba(78, 108, 132, 0.15);
-            --active-accent-orb-2: rgba(78, 108, 132, 0.10);
-            --active-accent-orb-3: rgba(78, 108, 132, 0.08);
+            --active-accent-orb-1: rgba(110, 193, 255, 0.15);
+            --active-accent-orb-2: rgba(110, 193, 255, 0.10);
+            --active-accent-orb-3: rgba(110, 193, 255, 0.08);
             
-            --active-accent-card-start: rgba(78, 108, 132, 0.08);
-            --active-accent-card-end: rgba(78, 108, 132, 0.02);
+            --active-accent-card-start: rgba(110, 193, 255, 0.08);
+            --active-accent-card-end: rgba(110, 193, 255, 0.02);
 
             --gradient-card: linear-gradient(135deg, var(--active-accent-card-start), var(--active-accent-card-end));
-            --shadow-glow: 0 0 60px rgba(78, 108, 132, 0.08);
+            --shadow-glow: 0 0 60px rgba(110, 193, 255, 0.08);
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
@@ -821,27 +821,26 @@
         // Fetch releases on load
         fetchLatestRelease();
 
-        // Theme cycling logic on clicking the main title
         const THEMES = [
             {
                 name: 'slate-blue',
-                color: '#4e6c84',
-                rgb: '78, 108, 132'
+                color: '#6ec1ff',
+                rgb: '110, 193, 255'
             },
             {
                 name: 'terracotta',
-                color: '#a84239',
-                rgb: '168, 66, 57'
+                color: '#ff7660',
+                rgb: '255, 118, 96'
             },
             {
                 name: 'indigo',
-                color: '#3d5a80',
-                rgb: '61, 90, 128'
+                color: '#6bdfb8',
+                rgb: '107, 223, 184'
             },
             {
                 name: 'violet',
-                color: '#a882ff',
-                rgb: '168, 130, 255'
+                color: '#b382ff',
+                rgb: '179, 130, 255'
             }
         ];
 
