@@ -1,4 +1,4 @@
-# 🔄 Samsara Looper
+# ☸️ Samsara Looper
 
 **A multiplayer looper for musicians.**
 
