@@ -14,8 +14,8 @@ Samsara is a real-time audio looper built as a native macOS app with an embedded
 
 Check the [Releases](https://github.com/BillTribble/Samsara-Looper/releases) page for the latest builds:
 
-- 🖥️ **Standalone App** (.app) — Run Samsara as a standalone macOS application
-- 🎛️ **VST3 Plugin** (.vst3) — Use Samsara inside your DAW
+- 🖥️ **MacOS Standalone** (.app) — Run Samsara as a standalone macOS application
+- 🎛️ **MacOS VST3** (.vst3) — Use Samsara inside your DAW
 
 > Requires macOS 13+. Apple Silicon and Intel Macs supported.
 
