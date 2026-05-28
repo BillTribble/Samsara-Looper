@@ -1,14 +1,14 @@
 # Samsara Looper
 
-**A macOS-native retrospective looping workstation for musicians.**
+**A multiplayer looper for musicians.**
 
 Samsara is a real-time audio looper built as a native macOS app (Apple Silicon) with an embedded web UI. It's designed for live performance and studio use, with features including:
 
-- 🎵 Multi-track retrospective looping
-- 🎛️ Real-time audio processing
+- 🎵 Multi-player retrospective looping
+- One looper device, many remote controls on phones or tablets
+- "First loop" mode for instantly setting your BPM
+- 🎛️ Instantly re-loop through FX
 - 🔗 Ableton Link sync
-- 🎹 MIDI control
-- 🌐 Web-based UI via embedded browser
 
 ## Downloads
 
@@ -26,7 +26,7 @@ Found a bug? Please [open an issue](https://github.com/BillTribble/Samsara-Loope
 1. What you were doing when the bug occurred
 2. What you expected to happen
 3. What actually happened
-4. Your macOS version and hardware
+4. Your version and hardware
 
 ## License
 
