@@ -21,17 +21,29 @@
             --bg-card: rgba(255, 255, 255, 0.03);
             --bg-card-hover: rgba(255, 255, 255, 0.06);
             --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-glow: rgba(168, 130, 255, 0.2);
+            --border-glow: var(--active-accent-border-glow);
             --text-primary: #f0eef5;
             --text-secondary: #8a8599;
             --text-muted: #5a5570;
-            --accent-purple: #a882ff;
-            --accent-blue: #6ec1ff;
-            --accent-warm: #ffb86c;
-            --accent-green: #6bdfb8;
-            --gradient-hero: linear-gradient(135deg, #a882ff 0%, #6ec1ff 50%, #6bdfb8 100%);
-            --gradient-card: linear-gradient(135deg, rgba(168, 130, 255, 0.08), rgba(110, 193, 255, 0.04));
-            --shadow-glow: 0 0 60px rgba(168, 130, 255, 0.08);
+            
+            /* Active Theme Variables - Initial Slate Blue */
+            --active-accent: #4e6c84;
+            --active-accent-glow: rgba(78, 108, 132, 0.25);
+            --active-accent-glow-hover: rgba(78, 108, 132, 0.35);
+            --active-accent-bg-subtle: rgba(78, 108, 132, 0.12);
+            --active-accent-bg-subtle-hover: rgba(78, 108, 132, 0.2);
+            --active-accent-border-subtle: rgba(78, 108, 132, 0.2);
+            --active-accent-border-glow: rgba(78, 108, 132, 0.25);
+            
+            --active-accent-orb-1: rgba(78, 108, 132, 0.15);
+            --active-accent-orb-2: rgba(78, 108, 132, 0.10);
+            --active-accent-orb-3: rgba(78, 108, 132, 0.08);
+            
+            --active-accent-card-start: rgba(78, 108, 132, 0.08);
+            --active-accent-card-end: rgba(78, 108, 132, 0.02);
+
+            --gradient-card: linear-gradient(135deg, var(--active-accent-card-start), var(--active-accent-card-end));
+            --shadow-glow: 0 0 60px rgba(78, 108, 132, 0.08);
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
@@ -59,12 +71,13 @@
             opacity: 0.4;
             pointer-events: none;
             z-index: 0;
+            transition: background 0.6s ease;
         }
 
         .orb-1 {
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(168, 130, 255, 0.15), transparent 70%);
+            background: radial-gradient(circle, var(--active-accent-orb-1), transparent 70%);
             top: -200px;
             right: -100px;
         }
@@ -72,7 +85,7 @@
         .orb-2 {
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(110, 193, 255, 0.1), transparent 70%);
+            background: radial-gradient(circle, var(--active-accent-orb-2), transparent 70%);
             bottom: 10%;
             left: -150px;
         }
@@ -80,7 +93,7 @@
         .orb-3 {
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(107, 223, 184, 0.08), transparent 70%);
+            background: radial-gradient(circle, var(--active-accent-orb-3), transparent 70%);
             top: 50%;
             right: -100px;
         }
@@ -144,14 +157,15 @@
         }
 
         .nav-link--cta {
-            background: rgba(168, 130, 255, 0.12);
-            color: var(--accent-purple);
-            border: 1px solid rgba(168, 130, 255, 0.2);
+            background: var(--active-accent-bg-subtle);
+            color: var(--active-accent);
+            border: 1px solid var(--active-accent-border-subtle);
+            transition: all 0.25s ease;
         }
 
         .nav-link--cta:hover {
-            background: rgba(168, 130, 255, 0.2);
-            color: var(--accent-purple);
+            background: var(--active-accent-bg-subtle-hover);
+            color: var(--active-accent);
         }
 
         /* --- Hero --- */
@@ -186,13 +200,22 @@
             letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 20px;
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .hero h1:hover {
+            transform: scale(1.02);
         }
 
         .hero h1 .gradient-text {
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--active-accent);
+            background: none;
+            -webkit-text-fill-color: initial;
+            background-clip: initial;
+            transition: color 0.4s ease;
         }
 
         .hero-subtitle {
@@ -227,14 +250,15 @@
         }
 
         .btn-primary {
-            background: var(--gradient-hero);
+            background: var(--active-accent);
             color: #0a0a0f;
-            box-shadow: 0 4px 20px rgba(168, 130, 255, 0.25);
+            box-shadow: 0 4px 20px var(--active-accent-glow);
+            transition: all 0.25s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(168, 130, 255, 0.35);
+            box-shadow: 0 8px 30px var(--active-accent-glow-hover);
         }
 
         .btn-secondary {
@@ -331,8 +355,9 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--accent-purple);
+            color: var(--active-accent);
             margin-bottom: 12px;
+            transition: color 0.4s ease;
         }
 
         .section-title {
@@ -795,6 +820,64 @@
 
         // Fetch releases on load
         fetchLatestRelease();
+
+        // Theme cycling logic on clicking the main title
+        const THEMES = [
+            {
+                name: 'slate-blue',
+                color: '#4e6c84',
+                rgb: '78, 108, 132'
+            },
+            {
+                name: 'terracotta',
+                color: '#a84239',
+                rgb: '168, 66, 57'
+            },
+            {
+                name: 'indigo',
+                color: '#3d5a80',
+                rgb: '61, 90, 128'
+            },
+            {
+                name: 'violet',
+                color: '#a882ff',
+                rgb: '168, 130, 255'
+            }
+        ];
+
+        let currentThemeIndex = 0;
+
+        function setTheme(theme) {
+            const root = document.documentElement;
+            root.style.setProperty('--active-accent', theme.color);
+            root.style.setProperty('--active-accent-glow', `rgba(${theme.rgb}, 0.25)`);
+            root.style.setProperty('--active-accent-glow-hover', `rgba(${theme.rgb}, 0.35)`);
+            root.style.setProperty('--active-accent-bg-subtle', `rgba(${theme.rgb}, 0.12)`);
+            root.style.setProperty('--active-accent-bg-subtle-hover', `rgba(${theme.rgb}, 0.2)`);
+            root.style.setProperty('--active-accent-border-subtle', `rgba(${theme.rgb}, 0.2)`);
+            root.style.setProperty('--active-accent-border-glow', `rgba(${theme.rgb}, 0.25)`);
+            
+            root.style.setProperty('--active-accent-orb-1', `rgba(${theme.rgb}, 0.15)`);
+            root.style.setProperty('--active-accent-orb-2', `rgba(${theme.rgb}, 0.10)`);
+            root.style.setProperty('--active-accent-orb-3', `rgba(${theme.rgb}, 0.08)`);
+            
+            root.style.setProperty('--active-accent-card-start', `rgba(${theme.rgb}, 0.08)`);
+            root.style.setProperty('--active-accent-card-end', `rgba(${theme.rgb}, 0.02)`);
+            
+            root.style.setProperty('--shadow-glow', `0 0 60px rgba(${theme.rgb}, 0.08)`);
+        }
+
+        // Set initial Slate Blue theme
+        setTheme(THEMES[0]);
+
+        // Handle title click
+        const heroTitle = document.querySelector('.hero h1');
+        if (heroTitle) {
+            heroTitle.addEventListener('click', () => {
+                currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
+                setTheme(THEMES[currentThemeIndex]);
+            });
+        }
     </script>
 
 </body>
