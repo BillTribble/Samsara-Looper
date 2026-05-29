@@ -1,5 +1,7 @@
 # ☸️ Samsara Looper
 
+[🌐 Website & Documentation](https://billtribble.github.io/Samsara-Looper/)
+
 **A multiplayer retrospective looper for musicians. Built for live performance and spontaneous composition.**
 
 Samsara is a real-time audio looper built as a native macOS app with an embedded web UI. It's designed for live performance and studio use, with features including:
