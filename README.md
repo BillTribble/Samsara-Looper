@@ -1,6 +1,6 @@
 # ☸️ Samsara Looper
 
-[🌐 Website & Documentation](https://billtribble.github.io/Samsara-Looper/)
+[🌐 Website](https://billtribble.github.io/Samsara-Looper/)
 
 **A multiplayer retrospective looper for musicians. Built for live performance and spontaneous composition.**
 
