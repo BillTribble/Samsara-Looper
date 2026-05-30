@@ -340,6 +340,59 @@
             line-height: 1.6;
         }
 
+        /* --- Info Panel --- */
+        .info-panel {
+            background: rgba(255, 184, 108, 0.05);
+            border: 1px solid rgba(255, 184, 108, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin: 0 auto 32px;
+            max-width: 640px;
+            text-align: left;
+        }
+        .info-panel h3 {
+            color: #ffb86c;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-panel p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .info-panel p:last-child {
+            margin-bottom: 0;
+        }
+        .info-panel ol {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 12px 0 16px 24px;
+        }
+        .info-panel li {
+            margin-bottom: 8px;
+        }
+        .info-panel strong {
+            color: var(--text-primary);
+        }
+        .info-panel code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85rem;
+            color: #f0eef5;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            margin-top: 6px;
+        }
+
         /* --- Downloads --- */
         .downloads {
             padding: 80px 0;
@@ -665,6 +718,21 @@
                     <span class="status-dot status-dot--amber"></span>
                     Checking for releases…
                 </span>
+            </div>
+
+            <div class="info-panel">
+                <h3>⚠️ Note for macOS Users: Opening the App and VST3 Plugin</h3>
+                <p>Because Samsara is an experimental developer app, it is currently "unsigned." This means your Mac's built-in security will block the standalone app from opening, and prevent your DAW from loading the VST3 plugin.</p>
+                <p>Use this quick Terminal trick to get them running:</p>
+                <ol>
+                    <li>Open the <strong>Terminal</strong> app on your Mac (you can find it using Spotlight search).</li>
+                    <li>Type the following command, making sure to leave a single space at the end:<br>
+                        <code>xattr -d com.apple.quarantine </code>
+                    </li>
+                    <li><strong>Drag and drop</strong> the downloaded Samsara app or <code>.vst3</code> file directly into the Terminal window. This will automatically fill in the correct file path for you.</li>
+                    <li>Press <strong>Enter</strong>.</li>
+                </ol>
+                <p>You can now open the standalone app and run the plugin in your DAW!</p>
             </div>
 
             <div class="download-cards">
