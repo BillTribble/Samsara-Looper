@@ -291,10 +291,40 @@
                 <g id="ipad-sub">
                     <rect x="0" y="0" width="105" height="75" rx="8" class="accent accent-bg glow"/>
                     <rect x="5" y="5" width="95" height="65" rx="4" class="accent" stroke-width="1.5" opacity="0.3"/>
+                    <!-- Active iPad Screen Area -->
                     <rect x="15" y="12" width="75" height="50" rx="3" class="accent" stroke-width="1.5" opacity="0.5"/>
-                    <line x1="15" y1="37" x2="90" y2="37" class="accent" stroke-width="0.75" opacity="0.5"/>
-                    <line x1="52" y1="12" x2="52" y2="62" class="accent" stroke-width="0.75" opacity="0.5"/>
-                    <circle cx="62" cy="42" r="5" class="accent-fill glow-strong"/>
+                    
+                    <!-- Left/Right Screen Splitter -->
+                    <line x1="50" y1="12" x2="50" y2="62" class="accent" stroke-width="1" opacity="0.4"/>
+                    
+                    <!-- LEFT HALF: Three Panel Grid with Ball -->
+                    <line x1="32.5" y1="12" x2="32.5" y2="62" class="accent" stroke-width="1" opacity="0.4"/>
+                    <line x1="15" y1="37" x2="32.5" y2="37" class="accent" stroke-width="1" opacity="0.4"/>
+                    <!-- Glowing Ball inside the Right panel of Left Half (X: 32.5 to 50, Y: 12 to 62) -->
+                    <circle cx="41.25" cy="37" r="4.5" class="accent-fill glow-strong"/>
+
+                    <!-- TOP RIGHT: Faders above waveform -->
+                    <!-- Fader 1 -->
+                    <line x1="58" y1="16" x2="58" y2="32" class="accent" stroke-width="1.5" opacity="0.4"/>
+                    <circle cx="58" cy="24" r="2.5" class="accent-fill"/>
+                    <!-- Fader 2 -->
+                    <line x1="70" y1="16" x2="70" y2="32" class="accent" stroke-width="1.5" opacity="0.4"/>
+                    <circle cx="70" cy="20" r="2.5" class="accent-fill"/>
+                    <!-- Fader 3 -->
+                    <line x1="82" y1="16" x2="82" y2="32" class="accent" stroke-width="1.5" opacity="0.4"/>
+                    <circle cx="82" cy="28" r="2.5" class="accent-fill"/>
+
+                    <!-- BOTTOM RIGHT: Waveform -->
+                    <g class="glow" opacity="0.8">
+                        <line x1="56" y1="46" x2="56" y2="52" class="accent" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="62" y1="42" x2="62" y2="56" class="accent" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="68" y1="40" x2="68" y2="58" class="accent" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="74" y1="44" x2="74" y2="54" class="accent" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="80" y1="46" x2="80" y2="52" class="accent" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="86" y1="48" x2="86" y2="50" class="accent" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- WiFi on top of the tablet -->
                     <g transform="translate(52, -15)" class="glow">
                         <path d="M -10 -10 A 15 15 0 0 1 10 -10" class="wifi"/>
                         <path d="M -18 -18 A 25 25 0 0 1 18 -18" class="wifi"/>
