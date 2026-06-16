@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illustration Chooser</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #1e1e24;
+            color: #fff;
+            padding: 40px;
+            margin: 0;
+        }
+        h1 { text-align: center; margin-bottom: 40px; font-weight: 300; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .category-title {
+            grid-column: 1 / -1;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            color: #57DEE3;
+        }
+        .icon-card {
+            background: #2a2a35;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .icon-card:hover {
+            background: #333342;
+            transform: translateY(-2px);
+        }
+        .icon-card.selected {
+            border-color: #57DEE3;
+            background: #233a40;
+        }
+        iconify-icon {
+            font-size: 80px;
+            color: #8a8599;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+        .icon-card:hover iconify-icon {
+            color: #f0eef5;
+        }
+        .icon-card.selected iconify-icon {
+            color: #57DEE3;
+        }
+        .icon-label {
+            font-size: 14px;
+            color: #aaa;
+            text-align: center;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Outline Illustrations for Multiplayer Diagram</h1>
+    <p style="text-align: center; color: #8a8599; margin-top: -20px; margin-bottom: 40px;">Clean vector outlines, slightly more detailed than standard icons.</p>
+
+    <div class="grid" id="iconGrid">
+        <div class="category-title">Microphones</div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="icon-park-outline:microphone-one"></iconify-icon>
+            <div class="icon-label">Microphone 1<br>(Icon Park)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="solar:microphone-3-linear"></iconify-icon>
+            <div class="icon-label">Microphone 2<br>(Solar)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="hugeicons:microphone-01"></iconify-icon>
+            <div class="icon-label">Microphone 3<br>(Huge Icons)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="ph:microphone-stage-light"></iconify-icon>
+            <div class="icon-label">Microphone 4<br>(Phosphor Stage)</div>
+        </div>
+
+        <div class="category-title">Synthesizers</div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="hugeicons:piano-02"></iconify-icon>
+            <div class="icon-label">Synthesizer 1<br>(Huge Icons Keyboard)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="icon-park-outline:piano"></iconify-icon>
+            <div class="icon-label">Synthesizer 2<br>(Icon Park)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="ph:piano-keys-light"></iconify-icon>
+            <div class="icon-label">Synthesizer 3<br>(Phosphor Keys)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="hugeicons:synthesizer"></iconify-icon>
+            <div class="icon-label">Synthesizer 4<br>(Huge Icons Synth)</div>
+        </div>
+
+        <div class="category-title">Electric Guitars</div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="hugeicons:guitar"></iconify-icon>
+            <div class="icon-label">Guitar 1<br>(Huge Icons)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="icon-park-outline:guitar"></iconify-icon>
+            <div class="icon-label">Guitar 2<br>(Icon Park)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="solar:music-note-slider-linear"></iconify-icon>
+            <div class="icon-label">Guitar 3<br>(Solar Instrument)</div>
+        </div>
+        <div class="icon-card" onclick="this.classList.toggle('selected')">
+            <iconify-icon icon="ph:guitar-light"></iconify-icon>
+            <div class="icon-label">Guitar 4<br>(Phosphor)</div>
+        </div>
+    </div>
+</body>
+</html>
