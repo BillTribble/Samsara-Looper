@@ -16,6 +16,7 @@
         }
 
         :root {
+            color-scheme: dark;
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
             --bg-card: rgba(255, 255, 255, 0.03);
@@ -25,9 +26,12 @@
             --text-primary: #f0eef5;
             --text-secondary: #8a8599;
             --text-muted: #5a5570;
+            --code-bg: rgba(0, 0, 0, 0.4);
+            --code-text: #f0eef5;
             
             /* Active Theme Variables - Initial App Teal */
             --active-accent: #57DEE3;
+            --btn-primary-text: #0a0a0f;
             --active-accent-glow: rgba(87, 222, 227, 0.25);
             --active-accent-glow-hover: rgba(87, 222, 227, 0.35);
             --active-accent-bg-subtle: rgba(87, 222, 227, 0.12);
@@ -49,6 +53,37 @@
             --radius-lg: 20px;
             --radius-xl: 28px;
         }
+
+        /* Light Mode Disabled for now
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #f5f5f7;
+                --bg-secondary: #ffffff;
+                --bg-card: rgba(0, 0, 0, 0.02);
+                --bg-card-hover: rgba(0, 0, 0, 0.04);
+                --border-subtle: rgba(0, 0, 0, 0.08);
+                --text-primary: #1d1d1f;
+                --text-secondary: #515154;
+                --text-muted: #86868b;
+                --code-bg: rgba(0, 0, 0, 0.05);
+                --code-text: #1d1d1f;
+                --active-accent: #008489;
+                --btn-primary-text: #ffffff;
+                --active-accent-glow: rgba(0, 132, 137, 0.25);
+                --active-accent-glow-hover: rgba(0, 132, 137, 0.35);
+                --active-accent-bg-subtle: rgba(0, 132, 137, 0.12);
+                --active-accent-bg-subtle-hover: rgba(0, 132, 137, 0.2);
+                --active-accent-border-subtle: rgba(0, 132, 137, 0.2);
+                --active-accent-border-glow: rgba(0, 132, 137, 0.25);
+                --active-accent-orb-1: rgba(0, 132, 137, 0.15);
+                --active-accent-orb-2: rgba(0, 132, 137, 0.10);
+                --active-accent-orb-3: rgba(0, 132, 137, 0.08);
+                --active-accent-card-start: rgba(0, 132, 137, 0.08);
+                --active-accent-card-end: rgba(0, 132, 137, 0.02);
+                --shadow-glow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            }
+        }
+        */
 
         html {
             scroll-behavior: smooth;
@@ -100,9 +135,9 @@
 
         /* --- Layout --- */
         .container {
-            max-width: 960px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 40px;
             position: relative;
             z-index: 1;
         }
@@ -251,7 +286,7 @@
 
         .btn-primary {
             background: var(--active-accent);
-            color: #0a0a0f;
+            color: var(--btn-primary-text, #0a0a0f);
             box-shadow: 0 4px 20px var(--active-accent-glow);
             transition: all 0.25s ease;
         }
@@ -280,64 +315,109 @@
 
         /* --- Features --- */
         .features {
-            padding: 60px 0 80px;
+            padding: 120px 0 160px;
+            display: flex;
+            flex-direction: column;
+            gap: 160px;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 120px;
         }
 
-        .feature-card {
-            background: var(--gradient-card);
+        .feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .feature-media-placeholder {
+            flex: 1.4;
+            aspect-ratio: 16 / 10;
+            background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            transition: all 0.3s ease;
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
         }
 
-        .feature-card::before {
+        @media (prefers-color-scheme: dark) {
+            .feature-media-placeholder {
+                box-shadow: var(--shadow-glow);
+            }
+        }
+
+        .feature-media-placeholder::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(168, 130, 255, 0.3), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.1));
+            z-index: 1;
         }
 
-        .feature-card:hover {
+        @media (prefers-color-scheme: dark) {
+            .feature-media-placeholder::after {
+                background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.3));
+            }
+        }
+
+        .feature-media-icon {
+            font-size: 4rem;
+            opacity: 0.15;
+            z-index: 0;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .feature-row:hover .feature-media-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-row:hover .feature-media-placeholder {
+            transform: translateY(-5px);
             border-color: var(--border-glow);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
         }
 
-        .feature-card:hover::before {
-            opacity: 1;
+        .feature-content {
+            flex: 1;
+            padding: 20px 0;
         }
 
         .feature-icon {
-            font-size: 1.8rem;
-            margin-bottom: 14px;
-            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            display: inline-block;
         }
 
         .feature-title {
             font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1.05rem;
-            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 3.2rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            color: var(--text-primary);
         }
 
         .feature-desc {
             color: var(--text-secondary);
-            font-size: 0.88rem;
+            font-size: 1.35rem;
             line-height: 1.6;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- Info Panel --- */
@@ -382,13 +462,13 @@
             color: var(--text-primary);
         }
         .info-panel code {
-            background: rgba(0, 0, 0, 0.4);
+            background: var(--code-bg);
             padding: 4px 8px;
             border-radius: 4px;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-size: 0.85rem;
-            color: #f0eef5;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--code-text);
+            border: 1px solid rgba(128, 128, 128, 0.1);
             display: inline-block;
             margin-top: 6px;
         }
@@ -621,10 +701,26 @@
         }
 
         /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .feature-row, .feature-row.reverse {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+            .feature-content {
+                padding: 0;
+            }
+            .feature-media-placeholder {
+                width: 100%;
+            }
+            .feature-title {
+                font-size: 1.8rem;
+            }
+        }
+
         @media (max-width: 640px) {
             .hero { padding: 60px 0 50px; }
             .hero-wheel { font-size: 3.5rem; }
-            .features-grid { grid-template-columns: 1fr; }
             .download-cards { grid-template-columns: 1fr; }
             .feedback-card { padding: 40px 24px; }
             .nav-links { display: none; }
@@ -665,43 +761,78 @@
             <div class="hero-actions">
                 <a href="#downloads" class="btn btn-primary">
                     <span class="btn-icon">↓</span>
-                    Download Latest
+                    Download for macOS
                 </a>
             </div>
         </section>
 
         <!-- Features -->
         <section class="features" id="features">
-            <div class="features-grid">
-                <div class="feature-card">
+            <div class="feature-row reveal">
+                <div class="feature-content">
                     <span class="feature-icon">📱</span>
-                    <h3 class="feature-title">Multiplayer Control</h3>
+                    <h3 class="feature-title">Multiplayer control</h3>
                     <p class="feature-desc">One looper device, many remote controls. Connect from any phone or tablet on your&nbsp;Wi-Fi.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎛️</span>
-                    <h3 class="feature-title">Re-loop Through FX</h3>
-                    <p class="feature-desc">Instantly re-loop your audio through effects chains. Layer and transform on the&nbsp;fly.</p>
+                <div class="feature-media-placeholder" style="background: transparent; border: none; box-shadow: none;">
+                    <img src="assets/multiplayer-diagram.svg" alt="Multiplayer Setup Diagram" style="width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 2; padding: 20px;">
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎵</span>
-                    <h3 class="feature-title">Retrospective Looping</h3>
+            </div>
+
+            <div class="feature-row reveal reverse">
+                <div class="feature-content">
+                    <span class="feature-icon">🎛️</span>
+                    <h3 class="feature-title">Re-loop through FX</h3>
+                    <p class="feature-desc">Instantly re-loop your audio through effects chains. Layer and transform on the&nbsp;fly with a built-in suite of dynamic effects that stay in perfect sync with your jam.</p>
+                </div>
+                <div class="feature-media-placeholder">
+                    <span class="feature-media-icon">📷</span>
+                </div>
+            </div>
+
+            <div class="feature-row reveal">
+                <div class="feature-content">
+                    <span class="feature-icon">↩️</span>
+                    <h3 class="feature-title">Retrospective looping</h3>
                     <p class="feature-desc">Loop what you just played. Samsara is always listening — capture the magic whenever you&nbsp;like.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-media-placeholder">
+                    <span class="feature-media-icon">📷</span>
+                </div>
+            </div>
+
+            <div class="feature-row reveal reverse">
+                <div class="feature-content">
                     <span class="feature-icon">⏱️</span>
-                    <h3 class="feature-title">First Loop BPM</h3>
+                    <h3 class="feature-title">First loop BPM</h3>
                     <p class="feature-desc">Set your tempo instantly from your first loop. No click tracks needed — just play and&nbsp;go.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔗</span>
-                    <h3 class="feature-title">Ableton Link</h3>
-                    <p class="feature-desc">Stay in sync with Ableton Live and any Link-enabled app on your&nbsp;network.</p>
+                <div class="feature-media-placeholder">
+                    <span class="feature-media-icon">📷</span>
                 </div>
-                <div class="feature-card">
+            </div>
+
+            <div class="feature-row reveal">
+                <div class="feature-content">
+                    <span class="feature-icon" style="display: inline-flex; width: 40px; height: 40px; vertical-align: middle;">
+                        <svg fill="currentColor" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><path d="M0 6.4v11.2h1.6V6.4zm3.2 0v11.2h1.6V6.4zm3.2 0v11.2H8V6.4zm3.2 0v11.2h1.6V6.4zm3.2 0V8H24V6.4zm0 3.2v1.6H24V9.6zm0 3.2v1.6H24v-1.6zm0 3.2v1.6H24V16z"/></svg>
+                    </span>
+                    <h3 class="feature-title">Ableton Link</h3>
+                    <p class="feature-desc">Stay in sync with Ableton Live and any Link-enabled app on your&nbsp;network. Seamlessly integrate with other musicians, sequencers, and drum machines.</p>
+                </div>
+                <div class="feature-media-placeholder">
+                    <span class="feature-media-icon">📷</span>
+                </div>
+            </div>
+
+            <div class="feature-row reveal reverse">
+                <div class="feature-content">
                     <span class="feature-icon">🎚️</span>
                     <h3 class="feature-title">Standalone &amp; VST3</h3>
-                    <p class="feature-desc">Run as a standalone macOS app or drop the VST3 plugin straight into your&nbsp;DAW.</p>
+                    <p class="feature-desc">Run as a standalone macOS app or drop the VST3 plugin straight into your&nbsp;DAW. Whether you're playing live on stage or producing in the studio, Samsara adapts to your workflow.</p>
+                </div>
+                <div class="feature-media-placeholder">
+                    <span class="feature-media-icon">📷</span>
                 </div>
             </div>
         </section>
@@ -721,7 +852,7 @@
             </div>
 
             <div class="info-panel">
-                <h3>⚠️ Note for macOS Users</h3>
+                <h3>⚠️ Note for macOS users</h3>
                 <p>Because Samsara is an experimental developer app, it is currently "unsigned." This means your Mac's built-in security will block the app from opening.</p>
                 <p>Use this quick Terminal trick to get things working:</p>
                 <ol>
@@ -738,7 +869,7 @@
             <div class="download-cards">
                 <div class="download-card">
                     <div class="download-icon">🖥️</div>
-                    <h3 class="download-title">MacOS Standalone</h3>
+                    <h3 class="download-title">macOS standalone</h3>
                     <p class="download-desc">Native macOS application</p>
                     <a href="#" id="download-standalone" class="btn btn-primary download-btn download-btn--disabled">
                         <span class="btn-icon">↓</span>
@@ -748,7 +879,7 @@
                 </div>
                 <div class="download-card">
                     <div class="download-icon">🎛️</div>
-                    <h3 class="download-title">MacOS VST3</h3>
+                    <h3 class="download-title">macOS VST3</h3>
                     <p class="download-desc">Use inside your DAW</p>
                     <a href="#" id="download-vst3" class="btn btn-primary download-btn download-btn--disabled">
                         <span class="btn-icon">↓</span>
@@ -767,18 +898,18 @@
         <!-- Feedback -->
         <section class="feedback" id="feedback">
             <div class="feedback-card">
-                <h2 class="feedback-title">💬 We'd Love Your Feedback</h2>
+                <h2 class="feedback-title">💬 We'd love your feedback</h2>
                 <p class="feedback-desc">
                     Found a bug? Have a feature idea? Let me know
                 </p>
                 <div class="feedback-actions">
                     <a href="https://github.com/BillTribble/Samsara-Looper/issues/new?labels=bug&template=bug_report.md&title=%5BBug%5D+" class="btn btn-secondary" target="_blank" rel="noopener">
                         <span class="btn-icon">🐛</span>
-                        Report a Bug
+                        Report a bug
                     </a>
                     <a href="https://github.com/BillTribble/Samsara-Looper/issues/new?labels=enhancement&title=%5BFeature%5D+" class="btn btn-secondary" target="_blank" rel="noopener">
                         <span class="btn-icon">💡</span>
-                        Request a Feature
+                        Request a feature
                     </a>
                 </div>
             </div>
@@ -892,13 +1023,21 @@
         const THEMES = [
             {
                 name: 'teal',
-                color: '#57DEE3',
-                rgb: '87, 222, 227'
+                color: '#008489',
+                rgb: '0, 132, 137',
+                darkColor: '#57DEE3',
+                darkRgb: '87, 222, 227',
+                btnText: '#ffffff',
+                darkBtnText: '#0a0a0f'
             },
             {
                 name: 'blue',
-                color: '#6ec1ff',
-                rgb: '110, 193, 255'
+                color: '#0066cc',
+                rgb: '0, 102, 204',
+                darkColor: '#6ec1ff',
+                darkRgb: '110, 193, 255',
+                btnText: '#ffffff',
+                darkBtnText: '#0a0a0f'
             }
         ];
 
@@ -906,25 +1045,33 @@
 
         function setTheme(theme) {
             const root = document.documentElement;
-            root.style.setProperty('--active-accent', theme.color);
-            root.style.setProperty('--active-accent-glow', `rgba(${theme.rgb}, 0.25)`);
-            root.style.setProperty('--active-accent-glow-hover', `rgba(${theme.rgb}, 0.35)`);
-            root.style.setProperty('--active-accent-bg-subtle', `rgba(${theme.rgb}, 0.12)`);
-            root.style.setProperty('--active-accent-bg-subtle-hover', `rgba(${theme.rgb}, 0.2)`);
-            root.style.setProperty('--active-accent-border-subtle', `rgba(${theme.rgb}, 0.2)`);
-            root.style.setProperty('--active-accent-border-glow', `rgba(${theme.rgb}, 0.25)`);
+            // Force dark mode for now
+            const isDark = true;
             
-            root.style.setProperty('--active-accent-orb-1', `rgba(${theme.rgb}, 0.15)`);
-            root.style.setProperty('--active-accent-orb-2', `rgba(${theme.rgb}, 0.10)`);
-            root.style.setProperty('--active-accent-orb-3', `rgba(${theme.rgb}, 0.08)`);
+            const color = isDark ? theme.darkColor : theme.color;
+            const rgb = isDark ? theme.darkRgb : theme.rgb;
+            const btnText = isDark ? theme.darkBtnText : theme.btnText;
+
+            root.style.setProperty('--active-accent', color);
+            root.style.setProperty('--btn-primary-text', btnText);
+            root.style.setProperty('--active-accent-glow', `rgba(${rgb}, 0.25)`);
+            root.style.setProperty('--active-accent-glow-hover', `rgba(${rgb}, 0.35)`);
+            root.style.setProperty('--active-accent-bg-subtle', `rgba(${rgb}, 0.12)`);
+            root.style.setProperty('--active-accent-bg-subtle-hover', `rgba(${rgb}, 0.2)`);
+            root.style.setProperty('--active-accent-border-subtle', `rgba(${rgb}, 0.2)`);
+            root.style.setProperty('--active-accent-border-glow', `rgba(${rgb}, 0.25)`);
             
-            root.style.setProperty('--active-accent-card-start', `rgba(${theme.rgb}, 0.08)`);
-            root.style.setProperty('--active-accent-card-end', `rgba(${theme.rgb}, 0.02)`);
+            root.style.setProperty('--active-accent-orb-1', `rgba(${rgb}, 0.15)`);
+            root.style.setProperty('--active-accent-orb-2', `rgba(${rgb}, 0.10)`);
+            root.style.setProperty('--active-accent-orb-3', `rgba(${rgb}, 0.08)`);
             
-            root.style.setProperty('--shadow-glow', `0 0 60px rgba(${theme.rgb}, 0.08)`);
+            root.style.setProperty('--active-accent-card-start', `rgba(${rgb}, 0.08)`);
+            root.style.setProperty('--active-accent-card-end', `rgba(${rgb}, 0.02)`);
+            
+            root.style.setProperty('--shadow-glow', isDark ? `0 0 60px rgba(${rgb}, 0.08)` : `0 20px 40px rgba(0, 0, 0, 0.05)`);
         }
 
-        // Set initial Slate Blue theme
+        // Set initial Theme
         setTheme(THEMES[0]);
 
         // Handle title click
@@ -935,6 +1082,41 @@
                 setTheme(THEMES[currentThemeIndex]);
             });
         }
+
+        // Listen for OS theme changes (Disabled to force dark mode)
+        /*
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                setTheme(THEMES[currentThemeIndex]);
+            });
+        }
+        */
+
+        // Intersection Observer for scroll reveal animations
+        const revealObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealObserverOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Add reveal class to other sections for swish effect
+        document.querySelectorAll('.info-panel, .download-card, .feedback-card').forEach(el => {
+            el.classList.add('reveal');
+            revealObserver.observe(el);
+        });
     </script>
 
 </body>
