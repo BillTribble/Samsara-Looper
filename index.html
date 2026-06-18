@@ -815,10 +815,17 @@
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
+            .container {
+                padding: 0 24px;
+            }
             .hero {
                 grid-template-columns: 1fr;
                 gap: 40px;
                 padding: 60px 0 50px;
+            }
+            .hero-video {
+                margin-left: -14px;
+                margin-right: -14px;
             }
             .feature-row, .feature-row.reverse {
                 flex-direction: column;
@@ -828,7 +835,9 @@
                 padding: 0;
             }
             .feature-media-placeholder {
-                width: 100%;
+                width: auto;
+                margin-left: -14px;
+                margin-right: -14px;
             }
             .feature-title {
                 font-size: 1.8rem;
