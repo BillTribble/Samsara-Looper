@@ -309,6 +309,13 @@
             display: block;
         }
 
+        @media (min-width: 901px) {
+            .hero-video video {
+                max-height: calc(100vh - 280px);
+                object-fit: contain;
+            }
+        }
+
         .video-caption {
             font-size: 0.8rem;
             color: var(--text-secondary);
