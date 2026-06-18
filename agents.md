@@ -8,5 +8,5 @@
 * **Color Scheme**: The site is strictly dark-mode first. Use dynamic theme CSS variables (e.g. `--active-accent`) for consistent theme toggle support.
 * **Aesthetics**: Use premium elements like glassmorphism (`backdrop-filter`), subtle glows, gradient cards, and smooth micro-animations.
 * **Scroll Reveals**: Apply the `.reveal` class to sections and cards for unified entrance animations.
-* **Media & Diagrams**: Use actual SVGs or videos (no camera placeholders for real features), and ensure they scale to full width on mobile viewports.
+* **Media & Diagrams**: Replace camera placeholders with actual SVGs or videos as features are implemented. Ensure they scale to full width on mobile viewports.
 
