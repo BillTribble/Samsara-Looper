@@ -39,7 +39,7 @@
     <!-- Center: Audio Interface -->
     <g transform="translate(430, 390)">
         <rect x="0" y="0" width="100" height="35" rx="4" class="device device-bg"/>
-        <rect x="14" y="11.5" width="12" height="12" rx="1.5" class="device"/>
+        <rect x="12" y="9.5" width="16" height="16" rx="2" class="device"/>
         <circle cx="45" cy="17.5" r="5" class="device"/>
         <circle cx="65" cy="17.5" r="5" class="device"/>
         <circle cx="85" cy="17.5" r="5" class="device"/>
