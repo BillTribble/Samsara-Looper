@@ -17,7 +17,7 @@
     </defs>
     
     <!-- Wireless Connections to Audio Interface (Colored dashed lines) -->
-    <path d="M 250.8 376.8 L 250.8 485 L 450 485 L 450 425" class="wifi" stroke-dasharray="4 8" opacity="0.6"/>
+    <path d="M 250.8 386.8 L 250.8 485 L 450 485 L 450 425" class="wifi" stroke-dasharray="4 8" opacity="0.6"/>
     <path d="M 801.9 385.5 L 801.9 485 L 510 485 L 510 425" class="wifi" stroke-dasharray="4 8" opacity="0.6"/>
     <path d="M 762 685.1 L 762 712 L 480 712 L 480 425" class="wifi" stroke-dasharray="4 8" opacity="0.6"/>
 
