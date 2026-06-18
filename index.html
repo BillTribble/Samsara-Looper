@@ -206,15 +206,27 @@
         /* --- Hero --- */
         .hero {
             padding: 100px 0 80px;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .hero-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 22px;
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
             display: block;
-            margin: 0 auto 28px;
+            margin: 0 0 24px;
             filter: drop-shadow(0 0 40px rgba(168, 130, 255, 0.25));
             transition: transform 0.4s ease;
         }
@@ -230,14 +242,13 @@
 
         .hero h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 700;
             letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 20px;
             cursor: pointer;
             user-select: none;
-            display: inline-block;
             transition: transform 0.2s ease;
         }
 
@@ -257,16 +268,83 @@
             font-size: 1.15rem;
             color: var(--text-secondary);
             max-width: 520px;
-            margin: 0 auto 40px;
+            margin: 0 0 40px;
             line-height: 1.7;
         }
 
         .hero-actions {
             display: flex;
             gap: 14px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
+
+        .hero-video {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-glow);
+            background: var(--bg-card);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+        }
+
+        .hero-video:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-glow);
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            z-index: 10;
+        }
+
+        .video-control-btn {
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .video-control-btn:hover {
+            background: rgba(10, 10, 15, 0.8);
+            border-color: var(--active-accent);
+            transform: scale(1.02);
+        }
+
+
+        .diagram-placeholder {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .diagram-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
 
         /* --- Buttons --- */
         .btn {
@@ -702,6 +780,24 @@
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+                padding: 60px 0 50px;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero-logo {
+                margin: 0 auto 24px;
+            }
+            .hero-subtitle {
+                margin: 0 auto 40px;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
             .feature-row, .feature-row.reverse {
                 flex-direction: column;
                 gap: 40px;
@@ -716,11 +812,17 @@
             .feature-title {
                 font-size: 1.8rem;
             }
+            .diagram-placeholder {
+                aspect-ratio: auto !important;
+                height: auto !important;
+            }
+            .diagram-placeholder img {
+                padding: 0 !important;
+                height: auto !important;
+            }
         }
 
         @media (max-width: 640px) {
-            .hero { padding: 60px 0 50px; }
-            .hero-wheel { font-size: 3.5rem; }
             .download-cards { grid-template-columns: 1fr; }
             .feedback-card { padding: 40px 24px; }
             .nav-links { display: none; }
@@ -751,18 +853,32 @@
 
         <!-- Hero -->
         <section class="hero" id="hero">
-            <img src="assets/samsara-logo.png" alt="Samsara Looper" class="hero-logo">
-            <h1>
-                <span class="gradient-text">Samsara Looper</span>
-            </h1>
-            <p class="hero-subtitle">
-                A multiplayer looper for musicians. Built for live&nbsp;performance.
-            </p>
-            <div class="hero-actions">
-                <a href="#downloads" class="btn btn-primary">
-                    <span class="btn-icon">↓</span>
-                    Download for macOS
-                </a>
+            <div class="hero-content">
+                <img src="assets/samsara-logo.png" alt="Samsara Looper" class="hero-logo">
+                <h1>
+                    <span class="gradient-text">Samsara Looper</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A multiplayer looper for musicians. Built for live&nbsp;performance.
+                </p>
+                <div class="hero-actions">
+                    <a href="#downloads" class="btn btn-primary">
+                        <span class="btn-icon">↓</span>
+                        Download for macOS
+                    </a>
+                </div>
+            </div>
+            <div class="hero-video">
+                <video id="hero-vid" autoplay loop muted playsinline>
+                    <source src="domi-jam.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-controls">
+                    <button id="unmute-btn" class="video-control-btn">
+                        <span class="video-control-icon">🔇</span>
+                        <span class="video-control-label">Unmute</span>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -774,8 +890,8 @@
                     <h3 class="feature-title">Multiplayer control</h3>
                     <p class="feature-desc">One looper device, many remote controls. Connect from any phone or tablet on your&nbsp;Wi-Fi.</p>
                 </div>
-                <div class="feature-media-placeholder" style="background: transparent; border: none; box-shadow: none;">
-                    <img src="assets/multiplayer-diagram.svg" alt="Multiplayer Setup Diagram" style="width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 2; padding: 20px;">
+                <div class="feature-media-placeholder diagram-placeholder">
+                    <img src="assets/multiplayer-diagram.svg" alt="Multiplayer Setup Diagram">
                 </div>
             </div>
 
@@ -1117,6 +1233,26 @@
             el.classList.add('reveal');
             revealObserver.observe(el);
         });
+
+        // Video mute/unmute control
+        const heroVideo = document.getElementById('hero-vid');
+        const unmuteBtn = document.getElementById('unmute-btn');
+        if (heroVideo && unmuteBtn) {
+            const unmuteIcon = unmuteBtn.querySelector('.video-control-icon');
+            const unmuteLabel = unmuteBtn.querySelector('.video-control-label');
+
+            unmuteBtn.addEventListener('click', () => {
+                if (heroVideo.muted) {
+                    heroVideo.muted = false;
+                    unmuteIcon.textContent = '🔊';
+                    unmuteLabel.textContent = 'Mute';
+                } else {
+                    heroVideo.muted = true;
+                    unmuteIcon.textContent = '🔇';
+                    unmuteLabel.textContent = 'Unmute';
+                }
+            });
+        }
     </script>
 
 </body>
