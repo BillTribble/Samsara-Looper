@@ -814,6 +814,46 @@
             color: var(--text-muted);
         }
 
+        /* --- Author Credit --- */
+        .author-credit {
+            padding: 60px 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .author-credit-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 10px 20px;
+            border-radius: 100px;
+            backdrop-filter: blur(10px);
+        }
+
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--active-accent);
+        }
+
+        .author-credit-content a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .author-credit-content a:hover {
+            color: var(--active-accent);
+        }
+
         /* --- Responsive --- */
         @media (max-width: 900px) {
             .container {
@@ -1057,6 +1097,14 @@
             <div class="platform-info">
                 <span class="platform-tag">🍎 macOS&nbsp;13+</span>
                 <span class="platform-tag">💻 Apple Silicon &amp;&nbsp;Intel</span>
+            </div>
+        </section>
+
+        <!-- Author Credit -->
+        <section class="author-credit">
+            <div class="author-credit-content">
+                <img src="assets/bill-avatar.jpg" alt="Bill Tribble" class="author-avatar">
+                <span>Made with love by <a href="https://billtribble.com/" target="_blank" rel="noopener">Bill&nbsp;Tribble</a></span>
             </div>
         </section>
 
