@@ -2,6 +2,8 @@
 
 ## General Rules
 * **Readability**: Any text longer than three lines needs to be left-aligned.
+* **Git**: Always push to remote after making a commit.
+
 
 ## Design & UI Guidelines
 * **Alignment**: Keep layouts and text left-aligned in all viewports, including mobile.
