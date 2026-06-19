@@ -310,8 +310,21 @@
         }
 
         @media (min-width: 901px) {
+            .hero-video-container {
+                justify-self: end;
+                max-height: 85vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .hero-video {
+                max-height: 75vh;
+                display: flex;
+                width: fit-content;
+            }
             .hero-video video {
-                max-height: 98vh;
+                max-height: 75vh;
+                width: auto;
                 object-fit: contain;
             }
         }
