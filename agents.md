@@ -3,6 +3,7 @@
 ## General Rules
 * **Readability**: Any text longer than three lines needs to be left-aligned.
 * **Git**: Always push to remote after making a commit.
+* **Browser Tools**: Do not use browser tools (e.g. browser subagent) unless explicitly requested by the user.
 
 
 ## Design & UI Guidelines

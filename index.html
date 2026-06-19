@@ -226,13 +226,8 @@
             aspect-ratio: 1;
             border-radius: 22.5%;
             display: block;
-            margin: 0 0 32px;
+            margin: 0 0 32px -28px;
             filter: drop-shadow(0 0 80px rgba(168, 130, 255, 0.25));
-            transition: transform 0.4s ease;
-        }
-
-        .hero-logo:hover {
-            transform: scale(1.05);
         }
 
         @keyframes spin-slow {
@@ -891,6 +886,9 @@
             .hero-content {
                 align-items: center;
                 text-align: center;
+            }
+            .hero-logo {
+                margin-left: 0;
             }
             .hero-actions {
                 justify-content: center;
