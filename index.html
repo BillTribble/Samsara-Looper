@@ -816,7 +816,7 @@
 
         /* --- Author Credit --- */
         .author-credit {
-            padding: 60px 0 20px;
+            padding: 80px 0 40px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -825,22 +825,28 @@
         .author-credit-content {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.9rem;
+            gap: 20px;
+            font-size: 1.05rem;
             color: var(--text-secondary);
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            padding: 10px 20px;
+            padding: 16px 32px;
             border-radius: 100px;
             backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .author-credit-content:hover {
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-glow);
         }
 
         .author-avatar {
-            width: 32px;
-            height: 32px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1.5px solid var(--active-accent);
+            border: 2px solid var(--active-accent);
         }
 
         .author-credit-content a {
@@ -852,6 +858,24 @@
 
         .author-credit-content a:hover {
             color: var(--active-accent);
+        }
+
+        .heart-icon {
+            display: inline-block;
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: -0.25em;
+            color: #ff4a5a;
+            margin: 0 4px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
         }
 
         /* --- Responsive --- */
@@ -1100,14 +1124,6 @@
             </div>
         </section>
 
-        <!-- Author Credit -->
-        <section class="author-credit">
-            <div class="author-credit-content">
-                <img src="assets/bill-avatar.jpg" alt="Bill Tribble" class="author-avatar">
-                <span>Made with love by <a href="https://billtribble.com/" target="_blank" rel="noopener">Bill&nbsp;Tribble</a></span>
-            </div>
-        </section>
-
         <!-- Feedback -->
         <section class="feedback" id="feedback">
             <div class="feedback-card">
@@ -1125,6 +1141,14 @@
                         Request a&nbsp;feature
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Author Credit -->
+        <section class="author-credit">
+            <div class="author-credit-content">
+                <img src="assets/bill-avatar.jpg" alt="Bill Tribble" class="author-avatar">
+                <span>Made with <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> by <a href="https://billtribble.com/" target="_blank" rel="noopener">Bill&nbsp;Tribble</a></span>
             </div>
         </section>
 
