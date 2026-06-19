@@ -32,4 +32,4 @@ Found a bug? Please [open an issue](https://github.com/BillTribble/Samsara-Loope
 
 ## 📄 License
 
-All rights reserved. © Bill Tribble
+All rights reserved. © Actual Vibes Ltd
