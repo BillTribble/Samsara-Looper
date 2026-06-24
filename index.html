@@ -535,6 +535,51 @@
             line-height: 1.6;
         }
 
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+
+        .feature-card .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .feature-card-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
         /* Scroll Reveal Utility */
         .reveal {
             opacity: 0;
@@ -914,6 +959,12 @@
             .feature-content {
                 padding: 0;
             }
+            .feature-grid {
+                gap: 20px;
+            }
+            .feature-card {
+                padding: 32px;
+            }
             .feature-media-placeholder {
                 width: 100%;
             }
@@ -1006,60 +1057,37 @@
                 </div>
             </div>
 
-            <div class="feature-row reveal reverse">
-                <div class="feature-content">
+            <div class="feature-grid">
+                <div class="feature-card reveal">
                     <span class="feature-icon">🎛️</span>
-                    <h3 class="feature-title">Re-loop through&nbsp;FX</h3>
-                    <p class="feature-desc">Instantly re-loop your audio through effects chains. Layer and transform on the&nbsp;fly with a built-in suite of dynamic effects that stay in perfect sync with your&nbsp;jam.</p>
+                    <h3 class="feature-card-title">Re-loop through&nbsp;FX</h3>
+                    <p class="feature-card-desc">Instantly re-loop your audio through effects chains. Layer and transform on the&nbsp;fly with a built-in suite of dynamic effects that stay in perfect sync with your&nbsp;jam.</p>
                 </div>
-                <div class="feature-media-placeholder">
-                    <span class="feature-media-icon">📷</span>
-                </div>
-            </div>
 
-            <div class="feature-row reveal">
-                <div class="feature-content">
+                <div class="feature-card reveal">
                     <span class="feature-icon">↩️</span>
-                    <h3 class="feature-title">Retrospective&nbsp;looping</h3>
-                    <p class="feature-desc">Loop what you just played. Samsara is always listening — capture the magic whenever you&nbsp;like.</p>
+                    <h3 class="feature-card-title">Retrospective&nbsp;looping</h3>
+                    <p class="feature-card-desc">Loop what you just played. Samsara is always listening — capture the magic whenever you&nbsp;like.</p>
                 </div>
-                <div class="feature-media-placeholder">
-                    <span class="feature-media-icon">📷</span>
-                </div>
-            </div>
 
-            <div class="feature-row reveal reverse">
-                <div class="feature-content">
+                <div class="feature-card reveal">
                     <span class="feature-icon">⏱️</span>
-                    <h3 class="feature-title">First loop&nbsp;BPM</h3>
-                    <p class="feature-desc">Set your tempo instantly from your first loop. No click tracks needed — just play and&nbsp;go.</p>
+                    <h3 class="feature-card-title">First loop&nbsp;BPM</h3>
+                    <p class="feature-card-desc">Set your tempo instantly from your first loop. No click tracks needed — just play and&nbsp;go.</p>
                 </div>
-                <div class="feature-media-placeholder">
-                    <span class="feature-media-icon">📷</span>
-                </div>
-            </div>
 
-            <div class="feature-row reveal">
-                <div class="feature-content">
-                    <span class="feature-icon" style="display: inline-flex; width: 40px; height: 40px; vertical-align: middle;">
+                <div class="feature-card reveal">
+                    <span class="feature-icon" style="display: inline-flex; width: 32px; height: 32px; vertical-align: middle;">
                         <svg fill="currentColor" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><path d="M0 6.4v11.2h1.6V6.4zm3.2 0v11.2h1.6V6.4zm3.2 0v11.2H8V6.4zm3.2 0v11.2h1.6V6.4zm3.2 0V8H24V6.4zm0 3.2v1.6H24V9.6zm0 3.2v1.6H24v-1.6zm0 3.2v1.6H24V16z"/></svg>
                     </span>
-                    <h3 class="feature-title">Ableton&nbsp;Link</h3>
-                    <p class="feature-desc">Stay in sync with Ableton Live and any Link-enabled app on your&nbsp;network. Seamlessly integrate with other musicians, sequencers, and drum&nbsp;machines.</p>
+                    <h3 class="feature-card-title">Ableton&nbsp;Link</h3>
+                    <p class="feature-card-desc">Stay in sync with Ableton Live and any Link-enabled app on your&nbsp;network. Seamlessly integrate with other musicians, sequencers, and drum&nbsp;machines.</p>
                 </div>
-                <div class="feature-media-placeholder">
-                    <span class="feature-media-icon">📷</span>
-                </div>
-            </div>
 
-            <div class="feature-row reveal reverse">
-                <div class="feature-content">
+                <div class="feature-card reveal">
                     <span class="feature-icon">🎚️</span>
-                    <h3 class="feature-title">Standalone &amp;&nbsp;VST3</h3>
-                    <p class="feature-desc">Run as a standalone macOS app or drop the VST3 plugin straight into your&nbsp;DAW. Whether you're playing live on stage or producing in the studio, Samsara adapts to your&nbsp;workflow.</p>
-                </div>
-                <div class="feature-media-placeholder">
-                    <span class="feature-media-icon">📷</span>
+                    <h3 class="feature-card-title">Standalone &amp;&nbsp;VST3</h3>
+                    <p class="feature-card-desc">Run as a standalone macOS app or drop the VST3 plugin straight into your&nbsp;DAW. Whether you're playing live on stage or producing in the studio, Samsara adapts to your&nbsp;workflow.</p>
                 </div>
             </div>
         </section>
